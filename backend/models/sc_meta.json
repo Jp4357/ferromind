@@ -1,0 +1,114 @@
+{
+  "lead_time_stats": {
+    "chromite_ore": {
+      "mae_days": 1.26,
+      "mean_lead": 7.9,
+      "std_lead": 1.24
+    },
+    "met_coke": {
+      "mae_days": 1.32,
+      "mean_lead": 7.4,
+      "std_lead": 2.01
+    },
+    "quartzite_flux": {
+      "mae_days": 0.73,
+      "mean_lead": 3.7,
+      "std_lead": 0.83
+    },
+    "electrode_paste": {
+      "mae_days": 0.79,
+      "mean_lead": 11.5,
+      "std_lead": 1.0
+    },
+    "lime": {
+      "mae_days": 1.06,
+      "mean_lead": 4.4,
+      "std_lead": 0.94
+    }
+  },
+  "current_orders": {
+    "chromite_ore": 0.0,
+    "met_coke": 5000.0,
+    "quartzite_flux": 0.0,
+    "electrode_paste": 0.0,
+    "lime": 0.0
+  },
+  "mc_results": {
+    "chromite_ore": {
+      "order_qty": 0.0,
+      "confidence": 100.0,
+      "safe_runs": 1200,
+      "total_runs": 1200
+    },
+    "met_coke": {
+      "order_qty": 5000.0,
+      "confidence": 100.0,
+      "safe_runs": 1200,
+      "total_runs": 1200
+    },
+    "quartzite_flux": {
+      "order_qty": 0.0,
+      "confidence": 100.0,
+      "safe_runs": 1200,
+      "total_runs": 1200
+    },
+    "electrode_paste": {
+      "order_qty": 0.0,
+      "confidence": 0.0,
+      "safe_runs": 0,
+      "total_runs": 1200
+    },
+    "lime": {
+      "order_qty": 0.0,
+      "confidence": 100.0,
+      "safe_runs": 1200,
+      "total_runs": 1200
+    }
+  },
+  "overall_confidence": 80.0,
+  "recommendations": [
+    {
+      "priority": "P1",
+      "level": "blue",
+      "action": "Expedite electrode paste order \u2014 only 15 days cover",
+      "impact": "Prevent production stoppage (risk: $46,368)",
+      "confidence": "0%",
+      "state": "Auto-actioned"
+    },
+    {
+      "priority": "P2",
+      "level": "amber",
+      "action": "Maintain met coke plan \u2014 100% confidence, 6d cover",
+      "impact": "No action required",
+      "confidence": "100%",
+      "state": "Approved"
+    },
+    {
+      "priority": "P3",
+      "level": "teal",
+      "action": "Maintain lime plan \u2014 100% confidence, 30d cover",
+      "impact": "No action required",
+      "confidence": "100%",
+      "state": "Approved"
+    },
+    {
+      "priority": "P4",
+      "level": "red",
+      "action": "Maintain chromite ore plan \u2014 100% confidence, 32d cover",
+      "impact": "No action required",
+      "confidence": "100%",
+      "state": "Approved"
+    },
+    {
+      "priority": "P5",
+      "level": "amber",
+      "action": "Maintain quartzite flux plan \u2014 100% confidence, 42d cover",
+      "impact": "No action required",
+      "confidence": "100%",
+      "state": "Approved"
+    }
+  ],
+  "monthly_saving_usd": 180000.0,
+  "n_simulations": 1200,
+  "trained_at": "2026-04-30T04:52:27.590392"
+}

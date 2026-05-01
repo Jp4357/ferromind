@@ -1,0 +1,132 @@
+{
+  "model": "XGBoostRegressor",
+  "mape": 25.799,
+  "n_features": 24,
+  "train_weeks": 82,
+  "holdout_weeks": 12,
+  "forecasts": [
+    {
+      "week": 1,
+      "week_label": "W2",
+      "forecast": 112569.0,
+      "upper_ci": 143057.0,
+      "lower_ci": 82080.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 2,
+      "week_label": "W3",
+      "forecast": 117323.0,
+      "upper_ci": 147811.0,
+      "lower_ci": 86834.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 3,
+      "week_label": "W4",
+      "forecast": 119800.0,
+      "upper_ci": 150289.0,
+      "lower_ci": 89312.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 4,
+      "week_label": "W5",
+      "forecast": 120998.0,
+      "upper_ci": 151486.0,
+      "lower_ci": 90509.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 5,
+      "week_label": "W6",
+      "forecast": 121715.0,
+      "upper_ci": 152204.0,
+      "lower_ci": 91227.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 6,
+      "week_label": "W7",
+      "forecast": 122898.0,
+      "upper_ci": 153386.0,
+      "lower_ci": 92409.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 7,
+      "week_label": "W8",
+      "forecast": 124077.0,
+      "upper_ci": 154565.0,
+      "lower_ci": 93588.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 8,
+      "week_label": "W9",
+      "forecast": 126391.0,
+      "upper_ci": 156879.0,
+      "lower_ci": 95902.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 9,
+      "week_label": "W10",
+      "forecast": 126784.0,
+      "upper_ci": 157273.0,
+      "lower_ci": 96296.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 10,
+      "week_label": "W11",
+      "forecast": 126683.0,
+      "upper_ci": 157172.0,
+      "lower_ci": 96195.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 11,
+      "week_label": "W12",
+      "forecast": 126975.0,
+      "upper_ci": 157464.0,
+      "lower_ci": 96487.0,
+      "confidence": 80.0
+    },
+    {
+      "week": 12,
+      "week_label": "W13",
+      "forecast": 127377.0,
+      "upper_ci": 157866.0,
+      "lower_ci": 96889.0,
+      "confidence": 80.0
+    }
+  ],
+  "accuracy_history": {
+    "labels": [
+      "Nov",
+      "Dec",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr"
+    ],
+    "actual": [
+      15143.0,
+      15237.0,
+      15100.0,
+      15404.0,
+      15367.0,
+      4412.0
+    ],
+    "forecast": [
+      14738.0,
+      14504.0,
+      14489.0,
+      14485.0,
+      14501.0,
+      16074.0
+    ]
+  },
+  "trained_at": "2026-04-30T04:52:26.507537"
+}

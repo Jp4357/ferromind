@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Literata:ital,wght@0,400;0,500;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0c0f;
+  --bg2: #111418;
+  --bg3: #181d24;
+  --panel: #1a2030;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.13);
+  --text: #e8ecf0;
+  --muted: #6b7a8d;
+  --accent: #f0a500;
+  --accent2: #e05c2a;
+  --green: #2ecc8b;
+  --red: #e8524a;
+  --blue: #4a9eff;
+  --teal: #2ab8b0;
+  --page-px: clamp(16px, 4vw, 40px);
+  --nav-h: 56px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Literata', serif;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
+
+/* ── Animations ──────────────────────────────────────────────────── */
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+.animate-fade-in { animation: fadeIn 0.35s ease; }
+.live-pulse { animation: pulse 2s infinite; }
+
+/* ── Skeleton loader ─────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, var(--bg3) 25%, var(--panel) 50%, var(--bg3) 75%);
+  background-size: 600px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* ── Hide scrollbar (horizontal nav overflow) ────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Card hover lift ─────────────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  will-change: transform;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(0,0,0,0.45);
+  border-color: var(--border2) !important;
+}
+
+/* ── Nav tab active underline indicator ──────────────────────────── */
+.nav-tab { position: relative; overflow: hidden; }
+.nav-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.22s ease;
+}
+.nav-tab.active::after { transform: scaleX(1); }
+
+/* ── Responsive grid overrides ───────────────────────────────────── */
+/* 1024 px — tablets landscape */
+@media (max-width: 1024px) {
+  .grid-cols-5 { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* 768 px — tablets portrait */
+@media (max-width: 768px) {
+  .grid-cols-5,
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .grid-cols-3 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* 480 px — phones */
+@media (max-width: 480px) {
+  .grid-cols-5,
+  .grid-cols-4,
+  .grid-cols-3,
+  .grid-cols-2 { grid-template-columns: 1fr !important; }
+}

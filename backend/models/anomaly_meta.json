@@ -1,0 +1,36 @@
+{
+  "model": "IsolationForest",
+  "n_estimators": 300,
+  "contamination": 0.025,
+  "precision_pct": 75.0,
+  "recall_pct": 60.0,
+  "f1_pct": 66.7,
+  "false_positive_rate": 0.4,
+  "n_features": 20,
+  "train_samples": 1120,
+  "anomaly_events": [
+    {
+      "furnace": "SAF-02",
+      "date": "2024-09-06",
+      "anomaly_score": 0.6221967476550532
+    },
+    {
+      "furnace": "SAF-02",
+      "date": "2024-06-19",
+      "anomaly_score": 0.6221683022843727
+    },
+    {
+      "furnace": "SAF-02",
+      "date": "2024-06-28",
+      "anomaly_score": 0.5811832717513081
+    },
+    {
+      "furnace": "SAF-02",
+      "date": "2024-06-29",
+      "anomaly_score": 0.5674077997015003
+    }
+  ],
+  "flagged_last_30d": 4,
+  "confirmed_last_30d": 3,
+  "trained_at": "2026-04-30T04:52:32.398295"
+}

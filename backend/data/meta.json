@@ -1,0 +1,9 @@
+{
+  "start": "2023-01-01T00:00:00",
+  "end": "2024-12-31T00:00:00",
+  "days": 731,
+  "anomaly_days": 75,
+  "total_fecr_t": 61376.0,
+  "avg_daily_output": 83.96,
+  "procurement_events": 265
+}

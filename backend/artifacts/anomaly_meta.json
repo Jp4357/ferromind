@@ -1,0 +1,25 @@
+{
+  "model_name": "anomaly_detector",
+  "model_version": "2.0.0",
+  "model_type": "IsolationForest",
+  "trained_at": "2026-04-30T22:47:04.214052",
+  "training_rows": 16573,
+  "n_estimators": 200,
+  "contamination": 0.03,
+  "precision": 0.259,
+  "recall": 1.0,
+  "f1": 0.4115,
+  "anomaly_score_threshold": -0.6722,
+  "sensor_cols": [
+    "electrode_current_ka",
+    "bath_temperature_c",
+    "power_input_mw",
+    "off_gas_co_pct",
+    "slag_basicity",
+    "feed_rate_t_hr",
+    "electrode_position_mm",
+    "cooling_water_temp_c"
+  ],
+  "false_positive_rate": 0.741,
+  "status": "production"
+}

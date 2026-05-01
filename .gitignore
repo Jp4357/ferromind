@@ -1,0 +1,12 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+.next/
+node_modules/
+frontend/out/
+terraform/.terraform/
+terraform/tfplan
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl

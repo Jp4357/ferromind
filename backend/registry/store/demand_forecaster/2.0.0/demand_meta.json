@@ -1,0 +1,32 @@
+{
+  "model_name": "demand_forecaster",
+  "model_version": "2.0.0",
+  "model_type": "XGBoost",
+  "trained_at": "2026-04-30T22:47:02.336081",
+  "training_rows": 86,
+  "validation_rows": 12,
+  "mape_pct": 21.604,
+  "residual_std": 205.18,
+  "ci_80_half": 263.05,
+  "ci_90_half": 337.53,
+  "feature_cols": [
+    "active_furnaces",
+    "avg_cr_pct",
+    "avg_kwh_per_t",
+    "chromite_stock",
+    "chromite_cover",
+    "week_of_year",
+    "month",
+    "quarter",
+    "sin_week",
+    "cos_week",
+    "sin_month",
+    "cos_month",
+    "lag_1w",
+    "lag_2w",
+    "lag_4w",
+    "rolling_4w",
+    "rolling_8w"
+  ],
+  "status": "production"
+}

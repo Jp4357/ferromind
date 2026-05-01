@@ -1,0 +1,35 @@
+{
+  "trained_at": "2026-04-30T22:47:04.245900",
+  "data_stats": {
+    "generated_at": "2026-04-30T22:47:01.519710",
+    "date_range": "2023-01-01 \u2192 2024-12-31",
+    "production_records": 2872,
+    "inventory_snapshots": 3655,
+    "purchase_orders": 166,
+    "sensor_readings": 17212,
+    "anomaly_count": 639,
+    "anomaly_rate_pct": 3.71,
+    "demand_feature_rows": 98,
+    "disruption_events": 5,
+    "maintenance_events": 5
+  },
+  "demand_forecaster": {
+    "mape_pct": 21.604,
+    "model_type": "XGBoost",
+    "training_rows": 86,
+    "status": "production"
+  },
+  "supply_chain_optimizer": {
+    "solver": "PuLP CBC",
+    "mc_runs": 1200,
+    "avg_service_lvl": 80.25,
+    "status": "production"
+  },
+  "anomaly_detector": {
+    "precision": 0.259,
+    "recall": 1.0,
+    "f1": 0.4115,
+    "model_type": "IsolationForest",
+    "status": "production"
+  }
+}

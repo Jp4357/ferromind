@@ -1,0 +1,266 @@
+po_number,date,material,supplier,qty_ordered,unit_price,base_lead_days,actual_lead_days,on_time,disruption,supplier_reliability
+PO-2023001,2023-01-01,chromite_ore,Samancor Chrome,19085.0,191.59,9,9,False,False,0.88
+PO-2023002,2023-01-01,met_coke,ArcelorMittal,6052.0,311.41,8,9,True,False,0.91
+PO-2023003,2023-01-01,quartzite_flux,Lafarge SA,11755.0,28.79,4,3,True,False,0.96
+PO-2023004,2023-01-01,electrode_paste,SGL Carbon,274.0,1908.92,12,12,True,False,0.89
+PO-2023005,2023-01-01,lime,PPC Ltd,1925.0,43.79,5,5,True,False,0.92
+PO-2023006,2023-01-15,chromite_ore,Nkwe Mining,15370.0,200.23,8,6,False,False,0.94
+PO-2023007,2023-01-15,met_coke,ArcelorMittal,3912.0,307.27,8,8,True,False,0.91
+PO-2023008,2023-01-15,quartzite_flux,Lafarge SA,11381.0,27.49,4,4,True,False,0.96
+PO-2023009,2023-01-15,electrode_paste,SGL Carbon,181.0,1904.7,12,12,True,False,0.89
+PO-2023010,2023-01-15,lime,PPC Ltd,1504.0,45.76,5,5,True,False,0.92
+PO-2023011,2023-01-29,chromite_ore,Nkwe Mining,17714.0,192.94,8,8,True,False,0.94
+PO-2023012,2023-01-29,met_coke,ArcelorMittal,5081.0,316.62,8,8,True,False,0.91
+PO-2023013,2023-01-29,quartzite_flux,Lafarge SA,10903.0,28.03,4,3,True,False,0.96
+PO-2023014,2023-01-29,electrode_paste,SGL Carbon,194.0,1867.73,12,12,False,False,0.89
+PO-2023015,2023-01-29,lime,PPC Ltd,1648.0,44.92,5,4,True,False,0.92
+PO-2023016,2023-02-12,chromite_ore,Nkwe Mining,14019.0,200.49,8,8,True,False,0.94
+PO-2023017,2023-02-12,met_coke,ArcelorMittal,5214.0,310.31,8,7,True,False,0.91
+PO-2023018,2023-02-12,quartzite_flux,Lafarge SA,9254.0,28.95,4,4,False,False,0.96
+PO-2023019,2023-02-12,electrode_paste,SGL Carbon,248.0,1833.44,12,12,True,False,0.89
+PO-2023020,2023-02-12,lime,PPC Ltd,1698.0,44.62,5,4,True,False,0.92
+PO-2023021,2023-02-26,chromite_ore,Nkwe Mining,16506.0,203.4,8,10,True,False,0.94
+PO-2023022,2023-02-26,met_coke,ArcelorMittal,4790.0,317.03,8,7,True,False,0.91
+PO-2023023,2023-02-26,quartzite_flux,Lafarge SA,11977.0,28.86,4,4,True,False,0.96
+PO-2023024,2023-02-26,electrode_paste,SGL Carbon,234.0,1862.48,12,10,True,False,0.89
+PO-2023025,2023-02-26,lime,PPC Ltd,1714.0,44.04,5,4,True,False,0.92
+PO-2023026,2023-03-12,chromite_ore,Nkwe Mining,19314.0,197.06,8,8,True,False,0.94
+PO-2023027,2023-03-12,met_coke,ArcelorMittal,5583.0,309.34,8,8,True,False,0.91
+PO-2023028,2023-03-12,quartzite_flux,Lafarge SA,9309.0,28.22,4,5,True,False,0.96
+PO-2023029,2023-03-12,electrode_paste,SGL Carbon,208.0,1795.32,12,11,True,False,0.89
+PO-2023030,2023-03-12,lime,PPC Ltd,1531.0,44.27,5,4,True,False,0.92
+PO-2023031,2023-03-26,chromite_ore,Nkwe Mining,19675.0,194.94,8,6,True,False,0.94
+PO-2023032,2023-03-26,met_coke,Glencore Coal,5921.0,296.46,5,5,True,False,0.74
+PO-2023033,2023-03-26,quartzite_flux,Lafarge SA,11705.0,28.08,4,5,True,False,0.96
+PO-2023034,2023-03-26,electrode_paste,SGL Carbon,195.0,1910.27,12,11,True,False,0.89
+PO-2023035,2023-03-26,lime,PPC Ltd,1925.0,45.62,5,6,True,False,0.92
+PO-2023036,2023-04-09,chromite_ore,Nkwe Mining,12126.0,196.55,8,8,False,False,0.94
+PO-2023037,2023-04-09,met_coke,ArcelorMittal,5573.0,321.19,8,8,True,False,0.91
+PO-2023038,2023-04-09,quartzite_flux,Lafarge SA,10799.0,27.78,4,4,True,False,0.96
+PO-2023039,2023-04-09,electrode_paste,SGL Carbon,276.0,1826.2,12,11,True,False,0.89
+PO-2023040,2023-04-09,lime,PPC Ltd,1369.0,44.52,5,3,True,False,0.92
+PO-2023041,2023-04-23,chromite_ore,Nkwe Mining,15423.0,203.2,8,7,True,False,0.94
+PO-2023042,2023-04-23,met_coke,Glencore Coal,6217.0,296.29,5,11,False,True,0.74
+PO-2023043,2023-04-23,quartzite_flux,Lafarge SA,9462.0,27.76,4,3,True,False,0.96
+PO-2023044,2023-04-23,electrode_paste,SGL Carbon,273.0,1826.5,12,14,True,False,0.89
+PO-2023045,2023-04-23,lime,PPC Ltd,1370.0,44.49,5,5,True,False,0.92
+PO-2023046,2023-05-07,chromite_ore,Nkwe Mining,17096.0,194.83,8,8,True,False,0.94
+PO-2023047,2023-05-07,met_coke,Glencore Coal,4271.0,299.12,5,4,True,False,0.74
+PO-2023048,2023-05-07,quartzite_flux,Lafarge SA,9258.0,29.04,4,4,True,False,0.96
+PO-2023049,2023-05-07,electrode_paste,SGL Carbon,259.0,1909.99,12,12,False,False,0.89
+PO-2023050,2023-05-07,lime,PPC Ltd,1795.0,44.17,5,3,True,False,0.92
+PO-2023051,2023-05-21,chromite_ore,Nkwe Mining,16186.0,195.5,8,7,False,False,0.94
+PO-2023052,2023-05-21,met_coke,Glencore Coal,4963.0,293.41,5,8,False,False,0.74
+PO-2023053,2023-05-21,quartzite_flux,Lafarge SA,11479.0,28.75,4,3,True,False,0.96
+PO-2023054,2023-05-21,electrode_paste,SGL Carbon,288.0,1800.96,12,13,False,False,0.89
+PO-2023055,2023-05-21,lime,PPC Ltd,1724.0,44.05,5,4,False,False,0.92
+PO-2023056,2023-06-04,chromite_ore,Nkwe Mining,14170.0,203.86,8,7,True,False,0.94
+PO-2023057,2023-06-04,met_coke,ArcelorMittal,4212.0,311.12,8,7,True,False,0.91
+PO-2023058,2023-06-04,quartzite_flux,Lafarge SA,11474.0,27.4,4,4,True,False,0.96
+PO-2023059,2023-06-04,electrode_paste,SGL Carbon,275.0,1819.24,12,10,True,False,0.89
+PO-2023060,2023-06-04,lime,PPC Ltd,1675.0,45.31,5,4,True,False,0.92
+PO-2023061,2023-06-18,chromite_ore,Nkwe Mining,15213.0,203.5,8,8,True,False,0.94
+PO-2023062,2023-06-18,met_coke,Glencore Coal,5219.0,296.54,5,5,True,False,0.74
+PO-2023063,2023-06-18,quartzite_flux,Lafarge SA,8356.0,27.63,4,4,True,False,0.96
+PO-2023064,2023-06-18,electrode_paste,SGL Carbon,241.0,1809.16,12,13,True,False,0.89
+PO-2023065,2023-06-18,lime,PPC Ltd,1564.0,45.24,5,4,False,False,0.92
+PO-2023066,2023-07-02,chromite_ore,Nkwe Mining,16543.0,194.25,8,7,True,False,0.94
+PO-2023067,2023-07-02,met_coke,Glencore Coal,4444.0,294.33,5,4,True,False,0.74
+PO-2023068,2023-07-02,quartzite_flux,Lafarge SA,11358.0,27.26,4,4,True,False,0.96
+PO-2023069,2023-07-02,electrode_paste,SGL Carbon,232.0,1825.93,12,9,True,False,0.89
+PO-2023070,2023-07-02,lime,PPC Ltd,1294.0,44.47,5,5,True,False,0.92
+PO-2023071,2023-07-16,chromite_ore,Nkwe Mining,19291.0,196.19,8,8,False,False,0.94
+PO-2023072,2023-07-16,met_coke,ArcelorMittal,5589.0,310.43,8,6,True,False,0.91
+PO-2023073,2023-07-16,quartzite_flux,Lafarge SA,8901.0,28.28,4,4,True,False,0.96
+PO-2023074,2023-07-16,electrode_paste,SGL Carbon,205.0,1856.68,12,11,True,False,0.89
+PO-2023075,2023-07-16,lime,PPC Ltd,1219.0,44.74,5,5,True,False,0.92
+PO-2023076,2023-07-30,chromite_ore,Samancor Chrome,18771.0,199.9,9,9,True,False,0.88
+PO-2023077,2023-07-30,met_coke,ArcelorMittal,5541.0,319.0,8,6,True,False,0.91
+PO-2023078,2023-07-30,quartzite_flux,Lafarge SA,8316.0,27.66,4,4,True,False,0.96
+PO-2023079,2023-07-30,electrode_paste,SGL Carbon,195.0,1910.64,12,11,True,False,0.89
+PO-2023080,2023-07-30,lime,PPC Ltd,1207.0,43.91,5,2,True,False,0.92
+PO-2023081,2023-08-13,chromite_ore,Samancor Chrome,18714.0,193.28,9,8,True,False,0.88
+PO-2023082,2023-08-13,met_coke,Glencore Coal,5985.0,294.18,5,4,True,False,0.74
+PO-2023083,2023-08-13,quartzite_flux,Lafarge SA,8037.0,27.21,4,1,True,False,0.96
+PO-2023084,2023-08-13,electrode_paste,SGL Carbon,290.0,1871.95,12,12,True,False,0.89
+PO-2023085,2023-08-13,lime,PPC Ltd,1767.0,43.96,5,5,False,False,0.92
+PO-2023086,2023-08-27,chromite_ore,Nkwe Mining,18593.0,205.04,8,8,True,False,0.94
+PO-2023087,2023-08-27,met_coke,ArcelorMittal,4596.0,317.27,8,8,True,False,0.91
+PO-2023088,2023-08-27,quartzite_flux,Lafarge SA,10379.0,27.98,4,4,True,False,0.96
+PO-2023089,2023-08-27,electrode_paste,SGL Carbon,286.0,1810.19,12,10,True,False,0.89
+PO-2023090,2023-08-27,lime,PPC Ltd,1661.0,45.29,5,5,True,False,0.92
+PO-2023091,2023-09-10,chromite_ore,Nkwe Mining,19030.0,194.45,8,8,True,False,0.94
+PO-2023092,2023-09-10,met_coke,ArcelorMittal,5314.0,311.7,8,7,True,False,0.91
+PO-2023093,2023-09-10,quartzite_flux,Lafarge SA,8477.0,27.84,4,4,True,False,0.96
+PO-2023094,2023-09-10,electrode_paste,SGL Carbon,237.0,1875.74,12,10,True,False,0.89
+PO-2023095,2023-09-10,lime,PPC Ltd,1639.0,42.72,5,4,True,False,0.92
+PO-2023096,2023-09-24,chromite_ore,Samancor Chrome,14282.0,193.38,9,7,False,False,0.88
+PO-2023097,2023-09-24,met_coke,ArcelorMittal,5815.0,323.88,8,8,True,False,0.91
+PO-2023098,2023-09-24,quartzite_flux,Lafarge SA,11131.0,27.23,4,4,True,False,0.96
+PO-2023099,2023-09-24,electrode_paste,SGL Carbon,262.0,1867.32,12,11,True,False,0.89
+PO-2023100,2023-09-24,lime,PPC Ltd,1813.0,45.35,5,3,True,False,0.92
+PO-2023101,2023-10-08,chromite_ore,Nkwe Mining,18043.0,198.38,8,9,True,False,0.94
+PO-2023102,2023-10-08,met_coke,ArcelorMittal,4296.0,304.86,8,13,False,True,0.91
+PO-2023103,2023-10-08,quartzite_flux,Lafarge SA,10990.0,28.36,4,5,True,False,0.96
+PO-2023104,2023-10-08,electrode_paste,SGL Carbon,276.0,1881.1,12,10,True,False,0.89
+PO-2023105,2023-10-08,lime,PPC Ltd,1385.0,44.43,5,4,True,False,0.92
+PO-2023106,2023-10-22,chromite_ore,Nkwe Mining,15927.0,197.8,8,10,True,False,0.94
+PO-2023107,2023-10-22,met_coke,ArcelorMittal,5656.0,317.25,8,8,True,False,0.91
+PO-2023108,2023-10-22,quartzite_flux,Lafarge SA,12076.0,27.97,4,4,True,False,0.96
+PO-2023109,2023-10-22,electrode_paste,SGL Carbon,274.0,1863.72,12,11,True,False,0.89
+PO-2023110,2023-10-22,lime,PPC Ltd,1957.0,44.2,5,4,True,False,0.92
+PO-2023111,2023-11-05,chromite_ore,Nkwe Mining,19283.0,194.44,8,7,True,False,0.94
+PO-2023112,2023-11-05,met_coke,Glencore Coal,4812.0,308.04,5,5,True,False,0.74
+PO-2023113,2023-11-05,quartzite_flux,Lafarge SA,9687.0,28.93,4,4,True,False,0.96
+PO-2023114,2023-11-05,electrode_paste,SGL Carbon,195.0,1875.67,12,12,False,False,0.89
+PO-2023115,2023-11-05,lime,PPC Ltd,1738.0,44.83,5,4,True,False,0.92
+PO-2023116,2023-11-19,chromite_ore,Nkwe Mining,16430.0,193.98,8,8,True,False,0.94
+PO-2023117,2023-11-19,met_coke,Glencore Coal,3792.0,292.92,5,3,True,False,0.74
+PO-2023118,2023-11-19,quartzite_flux,Lafarge SA,11302.0,28.7,4,3,True,False,0.96
+PO-2023119,2023-11-19,electrode_paste,SGL Carbon,191.0,1808.9,12,11,True,False,0.89
+PO-2023120,2023-11-19,lime,PPC Ltd,1417.0,45.07,5,5,False,False,0.92
+PO-2023121,2023-12-03,chromite_ore,Nkwe Mining,16371.0,203.27,8,7,True,False,0.94
+PO-2023122,2023-12-03,met_coke,ArcelorMittal,6138.0,320.72,8,9,True,False,0.91
+PO-2023123,2023-12-03,quartzite_flux,Lafarge SA,12010.0,28.31,4,1,True,False,0.96
+PO-2023124,2023-12-03,electrode_paste,SGL Carbon,216.0,1812.79,12,10,True,False,0.89
+PO-2023125,2023-12-03,lime,PPC Ltd,1517.0,42.97,5,5,True,False,0.92
+PO-2023126,2023-12-17,chromite_ore,Nkwe Mining,15415.0,205.01,8,7,True,False,0.94
+PO-2023127,2023-12-17,met_coke,ArcelorMittal,5636.0,318.69,8,7,True,False,0.91
+PO-2023128,2023-12-17,quartzite_flux,Lafarge SA,12081.0,28.86,4,4,True,False,0.96
+PO-2023129,2023-12-17,electrode_paste,SGL Carbon,207.0,1860.15,12,12,True,False,0.89
+PO-2023130,2023-12-17,lime,PPC Ltd,1957.0,44.04,5,6,False,False,0.92
+PO-2023131,2023-12-31,chromite_ore,Nkwe Mining,15452.0,196.25,8,8,True,False,0.94
+PO-2023132,2023-12-31,met_coke,ArcelorMittal,5444.0,307.02,8,7,True,False,0.91
+PO-2023133,2023-12-31,quartzite_flux,Lafarge SA,7508.0,27.62,4,3,True,False,0.96
+PO-2023134,2023-12-31,electrode_paste,SGL Carbon,271.0,1870.63,12,13,True,False,0.89
+PO-2023135,2023-12-31,lime,PPC Ltd,1861.0,44.32,5,3,True,False,0.92
+PO-2023136,2024-01-14,chromite_ore,Samancor Chrome,19427.0,200.31,9,10,True,False,0.88
+PO-2023137,2024-01-14,met_coke,ArcelorMittal,5406.0,317.52,8,7,True,False,0.91
+PO-2023138,2024-01-14,quartzite_flux,Lafarge SA,8703.0,27.25,4,3,True,False,0.96
+PO-2023139,2024-01-14,electrode_paste,SGL Carbon,223.0,1866.77,12,13,True,False,0.89
+PO-2023140,2024-01-14,lime,PPC Ltd,1238.0,45.42,5,5,True,False,0.92
+PO-2023141,2024-01-28,chromite_ore,Nkwe Mining,12916.0,195.71,8,7,True,False,0.94
+PO-2023142,2024-01-28,met_coke,ArcelorMittal,5145.0,320.99,8,7,True,False,0.91
+PO-2023143,2024-01-28,quartzite_flux,Lafarge SA,12011.0,28.91,4,3,True,False,0.96
+PO-2023144,2024-01-28,electrode_paste,SGL Carbon,249.0,1903.84,12,11,True,False,0.89
+PO-2023145,2024-01-28,lime,PPC Ltd,1663.0,42.75,5,4,False,False,0.92
+PO-2023146,2024-02-11,chromite_ore,Nkwe Mining,16944.0,197.3,8,8,True,False,0.94
+PO-2023147,2024-02-11,met_coke,ArcelorMittal,6050.0,309.27,8,8,True,False,0.91
+PO-2023148,2024-02-11,quartzite_flux,Lafarge SA,9164.0,27.47,4,4,True,False,0.96
+PO-2023149,2024-02-11,electrode_paste,SGL Carbon,221.0,1791.08,12,10,True,False,0.89
+PO-2023150,2024-02-11,lime,PPC Ltd,1964.0,45.15,5,6,True,False,0.92
+PO-2023151,2024-02-25,chromite_ore,Nkwe Mining,15392.0,199.61,8,8,False,False,0.94
+PO-2023152,2024-02-25,met_coke,ArcelorMittal,4368.0,305.79,8,7,True,False,0.91
+PO-2023153,2024-02-25,quartzite_flux,Lafarge SA,12139.0,28.47,4,5,True,False,0.96
+PO-2023154,2024-02-25,electrode_paste,SGL Carbon,202.0,1812.12,12,12,True,False,0.89
+PO-2023155,2024-02-25,lime,PPC Ltd,1423.0,43.85,5,5,True,False,0.92
+PO-2023156,2024-03-10,chromite_ore,Nkwe Mining,13605.0,197.71,8,7,True,False,0.94
+PO-2023157,2024-03-10,met_coke,ArcelorMittal,4896.0,309.66,8,6,True,False,0.91
+PO-2023158,2024-03-10,quartzite_flux,Lafarge SA,9991.0,28.0,4,4,True,False,0.96
+PO-2023159,2024-03-10,electrode_paste,SGL Carbon,222.0,1882.37,12,12,False,False,0.89
+PO-2023160,2024-03-10,lime,PPC Ltd,1299.0,43.27,5,5,True,False,0.92
+PO-2023161,2024-03-24,chromite_ore,Nkwe Mining,12353.0,192.55,8,8,True,False,0.94
+PO-2023162,2024-03-24,met_coke,ArcelorMittal,4469.0,320.26,8,7,True,False,0.91
+PO-2023163,2024-03-24,quartzite_flux,Lafarge SA,11241.0,28.86,4,4,True,False,0.96
+PO-2023164,2024-03-24,electrode_paste,SGL Carbon,224.0,1792.81,12,11,True,False,0.89
+PO-2023165,2024-03-24,lime,PPC Ltd,1882.0,44.67,5,5,True,False,0.92
+PO-2023166,2024-04-07,chromite_ore,Nkwe Mining,19293.0,204.81,8,7,True,False,0.94
+PO-2023167,2024-04-07,met_coke,ArcelorMittal,5319.0,307.45,8,7,False,False,0.91
+PO-2023168,2024-04-07,quartzite_flux,Lafarge SA,7687.0,28.43,4,4,True,False,0.96
+PO-2023169,2024-04-07,electrode_paste,SGL Carbon,262.0,1906.19,12,13,True,False,0.89
+PO-2023170,2024-04-07,lime,PPC Ltd,1301.0,43.32,5,5,True,False,0.92
+PO-2023171,2024-04-21,chromite_ore,Nkwe Mining,14112.0,202.82,8,9,True,False,0.94
+PO-2023172,2024-04-21,met_coke,ArcelorMittal,5082.0,322.54,8,13,False,True,0.91
+PO-2023173,2024-04-21,quartzite_flux,Lafarge SA,11364.0,27.6,4,4,True,False,0.96
+PO-2023174,2024-04-21,electrode_paste,SGL Carbon,281.0,1898.32,12,12,True,False,0.89
+PO-2023175,2024-04-21,lime,PPC Ltd,1779.0,44.69,5,4,True,False,0.92
+PO-2023176,2024-05-05,chromite_ore,Nkwe Mining,17756.0,194.31,8,8,True,False,0.94
+PO-2023177,2024-05-05,met_coke,ArcelorMittal,5831.0,312.6,8,9,True,False,0.91
+PO-2023178,2024-05-05,quartzite_flux,Lafarge SA,10292.0,28.73,4,5,True,False,0.96
+PO-2023179,2024-05-05,electrode_paste,SGL Carbon,197.0,1800.16,12,11,True,False,0.89
+PO-2023180,2024-05-05,lime,PPC Ltd,1441.0,43.32,5,4,True,False,0.92
+PO-2023181,2024-05-19,chromite_ore,Samancor Chrome,12816.0,198.1,9,9,True,False,0.88
+PO-2023182,2024-05-19,met_coke,ArcelorMittal,4166.0,319.42,8,6,False,False,0.91
+PO-2023183,2024-05-19,quartzite_flux,Lafarge SA,10821.0,28.7,4,3,True,False,0.96
+PO-2023184,2024-05-19,electrode_paste,SGL Carbon,272.0,1853.7,12,12,True,False,0.89
+PO-2023185,2024-05-19,lime,PPC Ltd,1206.0,43.99,5,6,True,False,0.92
+PO-2023186,2024-06-02,chromite_ore,Nkwe Mining,17788.0,194.67,8,6,True,False,0.94
+PO-2023187,2024-06-02,met_coke,ArcelorMittal,6211.0,317.63,8,7,False,False,0.91
+PO-2023188,2024-06-02,quartzite_flux,Lafarge SA,8279.0,27.24,4,3,True,False,0.96
+PO-2023189,2024-06-02,electrode_paste,SGL Carbon,248.0,1785.79,12,12,True,False,0.89
+PO-2023190,2024-06-02,lime,PPC Ltd,1781.0,43.81,5,5,True,False,0.92
+PO-2023191,2024-06-16,chromite_ore,Samancor Chrome,14059.0,198.72,9,11,True,False,0.88
+PO-2023192,2024-06-16,met_coke,ArcelorMittal,3960.0,320.17,8,7,True,False,0.91
+PO-2023193,2024-06-16,quartzite_flux,Lafarge SA,9526.0,28.0,4,4,True,False,0.96
+PO-2023194,2024-06-16,electrode_paste,SGL Carbon,277.0,1796.95,12,13,True,False,0.89
+PO-2023195,2024-06-16,lime,PPC Ltd,1331.0,44.39,5,4,True,False,0.92
+PO-2023196,2024-06-30,chromite_ore,Nkwe Mining,14018.0,202.5,8,7,True,False,0.94
+PO-2023197,2024-06-30,met_coke,ArcelorMittal,5580.0,307.24,8,7,True,False,0.91
+PO-2023198,2024-06-30,quartzite_flux,Lafarge SA,11913.0,27.94,4,4,True,False,0.96
+PO-2023199,2024-06-30,electrode_paste,SGL Carbon,226.0,1843.28,12,10,True,False,0.89
+PO-2023200,2024-06-30,lime,PPC Ltd,1440.0,45.14,5,5,True,False,0.92
+PO-2023201,2024-07-14,chromite_ore,Nkwe Mining,19935.0,193.26,8,8,True,False,0.94
+PO-2023202,2024-07-14,met_coke,ArcelorMittal,3943.0,318.74,8,10,True,False,0.91
+PO-2023203,2024-07-14,quartzite_flux,Lafarge SA,11138.0,28.98,4,4,False,False,0.96
+PO-2023204,2024-07-14,electrode_paste,SGL Carbon,293.0,1890.27,12,12,True,False,0.89
+PO-2023205,2024-07-14,lime,PPC Ltd,1320.0,45.6,5,4,True,False,0.92
+PO-2023206,2024-07-28,chromite_ore,Nkwe Mining,14691.0,198.22,8,8,False,False,0.94
+PO-2023207,2024-07-28,met_coke,ArcelorMittal,5228.0,304.16,8,8,True,False,0.91
+PO-2023208,2024-07-28,quartzite_flux,Lafarge SA,9105.0,27.43,4,4,True,False,0.96
+PO-2023209,2024-07-28,electrode_paste,SGL Carbon,295.0,1809.61,12,11,True,False,0.89
+PO-2023210,2024-07-28,lime,PPC Ltd,1659.0,43.04,5,4,True,False,0.92
+PO-2023211,2024-08-11,chromite_ore,Samancor Chrome,17939.0,188.84,9,13,True,False,0.88
+PO-2023212,2024-08-11,met_coke,ArcelorMittal,4641.0,318.33,8,8,True,False,0.91
+PO-2023213,2024-08-11,quartzite_flux,Lafarge SA,9075.0,28.22,4,4,True,False,0.96
+PO-2023214,2024-08-11,electrode_paste,SGL Carbon,249.0,1871.16,12,12,True,False,0.89
+PO-2023215,2024-08-11,lime,PPC Ltd,1690.0,45.25,5,6,True,False,0.92
+PO-2023216,2024-08-25,chromite_ore,Nkwe Mining,17412.0,196.61,8,8,True,False,0.94
+PO-2023217,2024-08-25,met_coke,ArcelorMittal,5482.0,309.05,8,7,True,False,0.91
+PO-2023218,2024-08-25,quartzite_flux,Lafarge SA,7750.0,28.33,4,3,True,False,0.96
+PO-2023219,2024-08-25,electrode_paste,SGL Carbon,185.0,1785.04,12,12,True,False,0.89
+PO-2023220,2024-08-25,lime,PPC Ltd,1650.0,43.39,5,4,True,False,0.92
+PO-2023221,2024-09-08,chromite_ore,Nkwe Mining,19974.0,201.6,8,7,True,False,0.94
+PO-2023222,2024-09-08,met_coke,ArcelorMittal,4799.0,315.51,8,9,True,False,0.91
+PO-2023223,2024-09-08,quartzite_flux,Lafarge SA,8718.0,27.19,4,5,True,False,0.96
+PO-2023224,2024-09-08,electrode_paste,SGL Carbon,225.0,1848.92,12,12,False,False,0.89
+PO-2023225,2024-09-08,lime,PPC Ltd,1368.0,42.73,5,4,True,False,0.92
+PO-2023226,2024-09-22,chromite_ore,Nkwe Mining,13825.0,193.97,8,7,True,False,0.94
+PO-2023227,2024-09-22,met_coke,ArcelorMittal,5115.0,310.36,8,8,True,False,0.91
+PO-2023228,2024-09-22,quartzite_flux,Lafarge SA,10122.0,28.57,4,5,True,False,0.96
+PO-2023229,2024-09-22,electrode_paste,SGL Carbon,246.0,1889.56,12,12,True,False,0.89
+PO-2023230,2024-09-22,lime,PPC Ltd,1883.0,43.46,5,4,False,False,0.92
+PO-2023231,2024-10-06,chromite_ore,Nkwe Mining,14764.0,198.68,8,7,True,False,0.94
+PO-2023232,2024-10-06,met_coke,Glencore Coal,4220.0,303.53,5,6,False,False,0.74
+PO-2023233,2024-10-06,quartzite_flux,Lafarge SA,9056.0,28.29,4,3,False,False,0.96
+PO-2023234,2024-10-06,electrode_paste,SGL Carbon,249.0,1910.42,12,11,False,False,0.89
+PO-2023235,2024-10-06,lime,PPC Ltd,1215.0,45.05,5,3,True,False,0.92
+PO-2023236,2024-10-20,chromite_ore,Samancor Chrome,12657.0,198.82,9,8,True,False,0.88
+PO-2023237,2024-10-20,met_coke,ArcelorMittal,4872.0,321.01,8,10,False,True,0.91
+PO-2023238,2024-10-20,quartzite_flux,Lafarge SA,9930.0,27.19,4,4,False,False,0.96
+PO-2023239,2024-10-20,electrode_paste,SGL Carbon,295.0,1875.63,12,11,True,False,0.89
+PO-2023240,2024-10-20,lime,PPC Ltd,1436.0,43.85,5,6,False,False,0.92
+PO-2023241,2024-11-03,chromite_ore,Nkwe Mining,18009.0,195.76,8,8,True,False,0.94
+PO-2023242,2024-11-03,met_coke,ArcelorMittal,5653.0,321.45,8,10,True,False,0.91
+PO-2023243,2024-11-03,quartzite_flux,Lafarge SA,11829.0,28.07,4,3,True,False,0.96
+PO-2023244,2024-11-03,electrode_paste,SGL Carbon,203.0,1850.84,12,12,True,False,0.89
+PO-2023245,2024-11-03,lime,PPC Ltd,1421.0,45.54,5,3,True,False,0.92
+PO-2023246,2024-11-17,chromite_ore,Nkwe Mining,15171.0,198.75,8,7,False,False,0.94
+PO-2023247,2024-11-17,met_coke,ArcelorMittal,5916.0,308.23,8,8,True,False,0.91
+PO-2023248,2024-11-17,quartzite_flux,Lafarge SA,11772.0,27.93,4,4,True,False,0.96
+PO-2023249,2024-11-17,electrode_paste,SGL Carbon,205.0,1807.08,12,11,True,False,0.89
+PO-2023250,2024-11-17,lime,PPC Ltd,1310.0,44.99,5,5,True,False,0.92
+PO-2023251,2024-12-01,chromite_ore,Nkwe Mining,17947.0,199.57,8,9,True,False,0.94
+PO-2023252,2024-12-01,met_coke,Glencore Coal,5180.0,292.6,5,4,True,False,0.74
+PO-2023253,2024-12-01,quartzite_flux,Lafarge SA,9113.0,28.16,4,3,True,False,0.96
+PO-2023254,2024-12-01,electrode_paste,SGL Carbon,183.0,1833.38,12,12,True,False,0.89
+PO-2023255,2024-12-01,lime,PPC Ltd,1476.0,42.8,5,6,True,False,0.92
+PO-2023256,2024-12-15,chromite_ore,Nkwe Mining,15175.0,203.58,8,7,True,False,0.94
+PO-2023257,2024-12-15,met_coke,ArcelorMittal,4124.0,320.61,8,9,True,False,0.91
+PO-2023258,2024-12-15,quartzite_flux,Lafarge SA,10392.0,28.44,4,3,True,False,0.96
+PO-2023259,2024-12-15,electrode_paste,SGL Carbon,219.0,1796.91,12,11,True,False,0.89
+PO-2023260,2024-12-15,lime,PPC Ltd,1980.0,45.22,5,4,True,False,0.92
+PO-2023261,2024-12-29,chromite_ore,Nkwe Mining,12757.0,204.74,8,7,True,False,0.94
+PO-2023262,2024-12-29,met_coke,ArcelorMittal,4772.0,309.5,8,5,True,False,0.91
+PO-2023263,2024-12-29,quartzite_flux,Lafarge SA,11893.0,27.8,4,3,True,False,0.96
+PO-2023264,2024-12-29,electrode_paste,SGL Carbon,202.0,1854.49,12,11,True,False,0.89
+PO-2023265,2024-12-29,lime,PPC Ltd,1627.0,43.13,5,3,True,False,0.92

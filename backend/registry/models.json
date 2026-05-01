@@ -1,0 +1,130 @@
+{
+  "models": {
+    "demand_forecaster": {
+      "versions": [
+        {
+          "version": "2.0.0",
+          "status": "archived",
+          "registered_at": "2026-04-30T04:54:52.892522",
+          "artifact_dir": "registry/store/demand_forecaster/2.0.0",
+          "artifacts": [
+            "demand_model.joblib",
+            "demand_scaler.joblib",
+            "demand_meta.json"
+          ],
+          "artifact_hash": "c232cab9",
+          "metrics": {
+            "mape_pct": 21.54,
+            "residual_std": 205.55
+          },
+          "tags": {
+            "framework": "XGBoost"
+          }
+        },
+        {
+          "version": "2.0.0",
+          "status": "production",
+          "registered_at": "2026-04-30T22:47:02.361601",
+          "artifact_dir": "registry/store/demand_forecaster/2.0.0",
+          "artifacts": [
+            "demand_model.joblib",
+            "demand_scaler.joblib",
+            "demand_meta.json"
+          ],
+          "artifact_hash": "c232cab9",
+          "metrics": {
+            "mape_pct": 21.604,
+            "residual_std": 205.18
+          },
+          "tags": {
+            "framework": "XGBoost"
+          }
+        }
+      ]
+    },
+    "supply_chain_optimizer": {
+      "versions": [
+        {
+          "version": "2.0.0",
+          "status": "archived",
+          "registered_at": "2026-04-30T04:54:52.935008",
+          "artifact_dir": "registry/store/supply_chain_optimizer/2.0.0",
+          "artifacts": [
+            "optimizer_meta.json"
+          ],
+          "artifact_hash": "ef6d93c4",
+          "metrics": {
+            "mc_runs": 1200
+          },
+          "tags": {
+            "framework": "PuLP CBC"
+          }
+        },
+        {
+          "version": "2.0.0",
+          "status": "production",
+          "registered_at": "2026-04-30T22:47:02.568904",
+          "artifact_dir": "registry/store/supply_chain_optimizer/2.0.0",
+          "artifacts": [
+            "optimizer_meta.json"
+          ],
+          "artifact_hash": "ef6d93c4",
+          "metrics": {
+            "mc_runs": 1200
+          },
+          "tags": {
+            "framework": "PuLP CBC"
+          }
+        }
+      ]
+    },
+    "anomaly_detector": {
+      "versions": [
+        {
+          "version": "2.0.0",
+          "status": "archived",
+          "registered_at": "2026-04-30T04:54:54.507645",
+          "artifact_dir": "registry/store/anomaly_detector/2.0.0",
+          "artifacts": [
+            "anomaly_model.joblib",
+            "anomaly_scaler.joblib",
+            "anomaly_meta.json"
+          ],
+          "artifact_hash": "c128c817",
+          "metrics": {
+            "precision": 0.2587,
+            "recall": 1.0,
+            "f1": 0.4111,
+            "false_positive_rate": 0.7413,
+            "contamination": 0.03
+          },
+          "tags": {
+            "framework": "IsolationForest"
+          }
+        },
+        {
+          "version": "2.0.0",
+          "status": "production",
+          "registered_at": "2026-04-30T22:47:04.233646",
+          "artifact_dir": "registry/store/anomaly_detector/2.0.0",
+          "artifacts": [
+            "anomaly_model.joblib",
+            "anomaly_scaler.joblib",
+            "anomaly_meta.json"
+          ],
+          "artifact_hash": "c128c817",
+          "metrics": {
+            "precision": 0.259,
+            "recall": 1.0,
+            "f1": 0.4115,
+            "false_positive_rate": 0.741,
+            "contamination": 0.03
+          },
+          "tags": {
+            "framework": "IsolationForest"
+          }
+        }
+      ]
+    }
+  }
+}

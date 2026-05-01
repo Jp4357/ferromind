@@ -1,0 +1,171 @@
+name: Deploy FerroMind to AWS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # allow manual trigger
+
+env:
+  AWS_REGION:   us-east-1
+  PROJECT_NAME: ferromind
+
+jobs:
+
+  # ── 1. Provision / update infrastructure ──────────────────────────────────
+  terraform:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+    outputs:
+      cloudfront_url:             ${{ steps.tf_outputs.outputs.cloudfront_url }}
+      cloudfront_distribution_id: ${{ steps.tf_outputs.outputs.cloudfront_distribution_id }}
+      ecr_repository_url:         ${{ steps.tf_outputs.outputs.ecr_repository_url }}
+      s3_bucket_name:             ${{ steps.tf_outputs.outputs.s3_bucket_name }}
+      ecs_cluster_name:           ${{ steps.tf_outputs.outputs.ecs_cluster_name }}
+      ecs_service_name:           ${{ steps.tf_outputs.outputs.ecs_service_name }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:            ${{ env.AWS_REGION }}
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "~1.5"
+          terraform_wrapper: false
+
+      - name: Terraform Init
+        working-directory: terraform
+        run: terraform init
+
+      - name: Terraform Plan
+        working-directory: terraform
+        run: terraform plan -out=tfplan
+
+      - name: Terraform Apply
+        working-directory: terraform
+        run: terraform apply -auto-approve tfplan
+
+      - name: Capture outputs
+        id: tf_outputs
+        working-directory: terraform
+        run: |
+          echo "cloudfront_url=$(terraform output -raw cloudfront_url)"             >> $GITHUB_OUTPUT
+          echo "cloudfront_distribution_id=$(terraform output -raw cloudfront_distribution_id)" >> $GITHUB_OUTPUT
+          echo "ecr_repository_url=$(terraform output -raw ecr_repository_url)"     >> $GITHUB_OUTPUT
+          echo "s3_bucket_name=$(terraform output -raw s3_bucket_name)"             >> $GITHUB_OUTPUT
+          echo "ecs_cluster_name=$(terraform output -raw ecs_cluster_name)"         >> $GITHUB_OUTPUT
+          echo "ecs_service_name=$(terraform output -raw ecs_service_name)"         >> $GITHUB_OUTPUT
+
+  # ── 2. Build & deploy backend container ───────────────────────────────────
+  deploy-backend:
+    name: Deploy Backend
+    runs-on: ubuntu-latest
+    needs: terraform
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:            ${{ env.AWS_REGION }}
+
+      - name: Login to ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build & push Docker image
+        working-directory: backend
+        env:
+          ECR_REPO: ${{ needs.terraform.outputs.ecr_repository_url }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REPO:$IMAGE_TAG -t $ECR_REPO:latest .
+          docker push $ECR_REPO:$IMAGE_TAG
+          docker push $ECR_REPO:latest
+
+      - name: Force ECS redeployment
+        env:
+          CLUSTER: ${{ needs.terraform.outputs.ecs_cluster_name }}
+          SERVICE: ${{ needs.terraform.outputs.ecs_service_name }}
+        run: |
+          aws ecs update-service \
+            --cluster $CLUSTER \
+            --service $SERVICE \
+            --force-new-deployment \
+            --region ${{ env.AWS_REGION }}
+
+      - name: Wait for ECS service to stabilise
+        env:
+          CLUSTER: ${{ needs.terraform.outputs.ecs_cluster_name }}
+          SERVICE: ${{ needs.terraform.outputs.ecs_service_name }}
+        run: |
+          aws ecs wait services-stable \
+            --cluster $CLUSTER \
+            --services $SERVICE \
+            --region ${{ env.AWS_REGION }}
+
+  # ── 3. Build & deploy frontend static export ──────────────────────────────
+  deploy-frontend:
+    name: Deploy Frontend
+    runs-on: ubuntu-latest
+    needs: terraform
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build static export
+        working-directory: frontend
+        env:
+          # API calls go through CloudFront → ALB → FastAPI
+          NEXT_PUBLIC_API_URL: ${{ needs.terraform.outputs.cloudfront_url }}
+          NEXT_PUBLIC_WS_URL:  ${{ needs.terraform.outputs.cloudfront_url }}/ws/anomalies
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:            ${{ env.AWS_REGION }}
+
+      - name: Sync to S3
+        env:
+          S3_BUCKET: ${{ needs.terraform.outputs.s3_bucket_name }}
+        run: |
+          aws s3 sync frontend/out s3://$S3_BUCKET \
+            --delete \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude "*.html"
+
+          # HTML files must not be cached so users always get the latest
+          aws s3 sync frontend/out s3://$S3_BUCKET \
+            --delete \
+            --cache-control "public, max-age=0, must-revalidate" \
+            --include "*.html"
+
+      - name: Invalidate CloudFront cache
+        env:
+          CF_ID: ${{ needs.terraform.outputs.cloudfront_distribution_id }}
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id $CF_ID \
+            --paths "/*"

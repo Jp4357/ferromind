@@ -1,0 +1,8 @@
+{
+  "model_name": "supply_chain_optimizer",
+  "model_version": "2.0.0",
+  "solver": "PuLP CBC",
+  "mc_runs": 1200,
+  "trained_at": "2026-04-30T22:47:02.558928",
+  "status": "production"
+}
