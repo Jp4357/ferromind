@@ -16,13 +16,13 @@ terraform {
   #                                   --billing-mode PAY_PER_REQUEST
   # 3. Uncomment the block below and run: terraform init -migrate-state
   #
-  # backend "s3" {
-  #   bucket         = "ferromind-tfstate-<account-id>"
-  #   key            = "production/terraform.tfstate"
-  #   region         = "us-east-1"
-  #   dynamodb_table = "ferromind-tfstate-locks"
-  #   encrypt        = true
-  # }
+  backend "s3" {
+    bucket         = "ferromind-tfstate-261523981303"
+    key            = "production/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "ferromind-tfstate-locks"
+    encrypt        = true
+  }
 }
 
 provider "aws" {
