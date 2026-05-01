@@ -10,3 +10,4 @@ joblib==1.4.0
 PuLP==2.8.0
 python-dotenv==1.0.1
 websockets==12.0
+openai-agents==0.14.8
