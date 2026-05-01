@@ -537,9 +537,24 @@ export default function AdvisorTeamSection() {
   };
 
   useEffect(() => {
+    // Only check status — never auto-start streaming on mount.
+    // If a cached report exists, load it directly via /api/advisor/report
+    // so we avoid re-streaming and breaking CloudFront SSE buffering.
     fetch(`${API}/api/advisor/status`)
       .then(r => r.json())
-      .then(s => { if (s.has_report) startResearch(false); })
+      .then(s => {
+        if (s.has_report) {
+          fetch(`${API}/api/advisor/report`)
+            .then(r => r.json())
+            .then(data => {
+              if (data.brief) {
+                setReport(data);
+                setPhase("done");
+              }
+            })
+            .catch(() => {});
+        }
+      })
       .catch(() => {});
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
