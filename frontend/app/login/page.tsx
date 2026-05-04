@@ -1,11 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function LoginPage() {
   const router = useRouter();
+  // Already logged in — skip login page
+  useEffect(() => {
+    if (localStorage.getItem("ferromind_token")) window.location.replace("/");
+  }, []);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPwd,  setShowPwd]  = useState(false);
@@ -25,7 +30,7 @@ export default function LoginPage() {
       if (res.ok) {
         const { token } = await res.json();
         localStorage.setItem("ferromind_token", token);
-        router.push("/");
+        window.location.replace("/");
       } else {
         setError("Invalid credentials. Please try again.");
       }
