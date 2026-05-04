@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/primitives";
 import { ForecastChart, ForecastAccuracyChart } from "@/components/charts";
 
+import { authHeaders } from "@/lib/api";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 const modelColor:     Record<string, string> = { blue: "var(--blue)", teal: "var(--teal)", amber: "var(--accent)" };
@@ -109,7 +110,7 @@ function WhatIfSimulator() {
     try {
       const res = await fetch(`${API}/api/forecasting/predict`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...authHeaders() },
         body: JSON.stringify({ horizon_weeks: h, demand_factor: f }),
       });
       setResult(await res.json());
@@ -260,7 +261,7 @@ export default function ForecastingSection({ data }: { data: any }) {
   const refreshForecast = useCallback(async () => {
     setRefreshing(true);
     try {
-      const res  = await fetch(`${API}/api/forecasting/demand-forecast`);
+      const res  = await fetch(`${API}/api/forecasting/demand-forecast`, { headers: authHeaders() });
       const json = await res.json();
       setForecastData(json);
       setLastRefreshed(Date.now());
@@ -286,7 +287,7 @@ export default function ForecastingSection({ data }: { data: any }) {
   useEffect(() => {
     const poll = async () => {
       try {
-        const res = await fetch(`${API}/api/forecasting/live-stats`);
+        const res = await fetch(`${API}/api/forecasting/live-stats`, { headers: authHeaders() });
         setLiveStats(await res.json());
       } catch {}
     };
