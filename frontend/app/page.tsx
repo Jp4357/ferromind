@@ -11,7 +11,7 @@ import AnomalyStreamSection  from "@/components/anomaly/AnomalyStreamSection";
 import AdvisorTeamSection   from "@/components/advisor/AdvisorTeamSection";
 import { BusinessStreamProvider } from "@/components/business/BusinessStreamContext";
 import ProjectPlanSection  from "@/components/sections/ProjectPlanSection";
-import AuthGuard from "@/components/auth/AuthGuard";
+import LoginForm from "@/components/auth/LoginForm";
 
 const TABS = [
   { id: "overview",     label: "Overview"      },
@@ -26,11 +26,17 @@ const TABS = [
 ];
 
 export default function Home() {
+  const [authed,  setAuthed]  = useState<boolean | null>(null);
   const [active,  setActive]  = useState("overview");
   const [allData, setAllData] = useState<Record<string, any>>({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setAuthed(!!localStorage.getItem("ferromind_token"));
+  }, []);
+
+  useEffect(() => {
+    if (!authed) return;
     async function fetchAll() {
       try {
         const [
@@ -83,10 +89,12 @@ export default function Home() {
       finally     { setLoading(false); }
     }
     fetchAll();
-  }, []);
+  }, [authed]);
+
+  if (authed === null) return null;
+  if (!authed) return <LoginForm onSuccess={() => setAuthed(true)} />;
 
   return (
-    <AuthGuard>
     <BusinessStreamProvider>
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
 
@@ -226,6 +234,5 @@ export default function Home() {
       </main>
     </div>
     </BusinessStreamProvider>
-    </AuthGuard>
   );
 }
