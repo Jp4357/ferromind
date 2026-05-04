@@ -14,8 +14,8 @@ const HORIZONS = [4, 8, 12, 24];
 
 // ── Animated counter ─────────────────────────────────────────────────────────
 function LiveCount({ value, suffix = "" }: { value: number; suffix?: string }) {
-  const [display, setDisplay] = useState(value);
-  const prev = useRef(value);
+  const [display, setDisplay] = useState(value ?? 0);
+  const prev = useRef(value ?? 0);
 
   useEffect(() => {
     if (value === prev.current) return;
@@ -30,7 +30,7 @@ function LiveCount({ value, suffix = "" }: { value: number; suffix?: string }) {
     return () => clearInterval(id);
   }, [value]);
 
-  return <>{display.toLocaleString()}{suffix}</>;
+  return <>{(display ?? 0).toLocaleString()}{suffix}</>;
 }
 
 // ── Model card — third one gets live anomaly stats injected ──────────────────
