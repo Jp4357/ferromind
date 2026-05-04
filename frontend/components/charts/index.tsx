@@ -18,6 +18,7 @@ const axisStyle = { fill: "#6b7a8d", fontFamily: "'DM Mono', monospace", fontSiz
 
 /* ── Production vs Forecast (bar + line) ─────── */
 export function ProductionForecastChart({ data }: { data: { labels: string[]; actual: number[]; forecast: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, Actual: data.actual[i], Forecast: data.forecast[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -37,6 +38,7 @@ export function ProductionForecastChart({ data }: { data: { labels: string[]; ac
 /* ── Donut / Pie ─────────────────────────────── */
 const PIE_COLORS = [COLORS.blue, COLORS.accent, COLORS.teal, COLORS.green, COLORS.muted];
 export function DonutChart({ data }: { data: { labels: string[]; values: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, value: data.values[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -53,6 +55,7 @@ export function DonutChart({ data }: { data: { labels: string[]; values: number[
 
 /* ── Inventory levels bar + reorder line ─────── */
 export function InventoryLevelsChart({ data }: { data: { labels: string[]; current: number[]; reorder: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, Current: data.current[i], Reorder: data.reorder[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -77,6 +80,7 @@ export function InventoryLevelsChart({ data }: { data: { labels: string[]; curre
 
 /* ── Chromite trend area ─────────────────────── */
 export function ChromiteTrendChart({ data }: { data: { labels: string[]; stock: number[]; reorder_point: number } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, Stock: data.stock[i], Reorder: data.reorder_point }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -101,6 +105,7 @@ export function ChromiteTrendChart({ data }: { data: { labels: string[]; stock: 
 
 /* ── Stacked spend bar ───────────────────────── */
 export function SpendChart({ data }: { data: { labels: string[]; chromite: number[]; coke: number[]; other: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, Chromite: data.chromite[i], Coke: data.coke[i], Other: data.other[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -120,6 +125,7 @@ export function SpendChart({ data }: { data: { labels: string[]; chromite: numbe
 
 /* ── Daily production vs plan ────────────────── */
 export function DailyProductionChart({ data }: { data: { labels: string[]; actual: number[]; plan: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, Actual: data.actual[i], Plan: data.plan[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -144,6 +150,7 @@ export function DailyProductionChart({ data }: { data: { labels: string[]; actua
 
 /* ── Dual-axis energy chart ──────────────────── */
 export function EnergyChart({ data }: { data: { labels: string[]; mwh_day: number[]; kwh_per_t: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, "MWh/day": data.mwh_day[i], "kWh/t": data.kwh_per_t[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -163,6 +170,7 @@ export function EnergyChart({ data }: { data: { labels: string[]; mwh_day: numbe
 
 /* ── 12-week demand forecast with CI ─────────── */
 export function ForecastChart({ data }: { data: { labels: string[]; forecast: number[]; upper_ci: number[]; lower_ci: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({
     name: l, Forecast: data.forecast[i], Upper: data.upper_ci[i], Lower: data.lower_ci[i],
   }));
@@ -190,6 +198,7 @@ export function ForecastChart({ data }: { data: { labels: string[]; forecast: nu
 
 /* ── Forecast accuracy history ───────────────── */
 export function ForecastAccuracyChart({ data }: { data: { labels: string[]; actual: number[]; forecast: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, Actual: data.actual[i], Forecast: data.forecast[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -208,6 +217,7 @@ export function ForecastAccuracyChart({ data }: { data: { labels: string[]; actu
 
 /* ── Lead time comparison ────────────────────── */
 export function LeadTimeChart({ data }: { data: { labels: string[]; target: number[]; actual: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, Target: data.target[i], Actual: data.actual[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
@@ -228,6 +238,7 @@ export function LeadTimeChart({ data }: { data: { labels: string[]; target: numb
 
 /* ── Supply cost pie ─────────────────────────── */
 export function SupplyCostChart({ data }: { data: { labels: string[]; values: number[] } }) {
+  if (!data?.labels?.length) return null;
   const d = data.labels.map((l, i) => ({ name: l, value: data.values[i] }));
   return (
     <ResponsiveContainer width="100%" height={200}>
