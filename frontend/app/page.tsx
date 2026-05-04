@@ -11,6 +11,7 @@ import AnomalyStreamSection  from "@/components/anomaly/AnomalyStreamSection";
 import AdvisorTeamSection   from "@/components/advisor/AdvisorTeamSection";
 import { BusinessStreamProvider } from "@/components/business/BusinessStreamContext";
 import ProjectPlanSection  from "@/components/sections/ProjectPlanSection";
+import AuthGuard from "@/components/auth/AuthGuard";
 
 const TABS = [
   { id: "overview",     label: "Overview"      },
@@ -85,6 +86,7 @@ export default function Home() {
   }, []);
 
   return (
+    <AuthGuard>
     <BusinessStreamProvider>
     <div style={{ background: "var(--bg)", minHeight: "100vh" }}>
 
@@ -165,6 +167,24 @@ export default function Home() {
           }} />
           LIVE
         </div>
+
+        {/* Logout */}
+        <button
+          onClick={() => { localStorage.removeItem("ferromind_token"); window.location.href = "/login"; }}
+          className="font-mono text-[10px]"
+          style={{
+            flexShrink: 0, marginLeft: 10,
+            background: "transparent",
+            border: "1px solid rgba(255,255,255,0.08)",
+            borderRadius: 6, padding: "5px 12px",
+            color: "var(--muted)", cursor: "pointer",
+            transition: "border-color 0.15s, color 0.15s",
+          }}
+          onMouseEnter={e => { (e.target as HTMLElement).style.borderColor = "rgba(232,82,74,0.4)"; (e.target as HTMLElement).style.color = "var(--red)"; }}
+          onMouseLeave={e => { (e.target as HTMLElement).style.borderColor = "rgba(255,255,255,0.08)"; (e.target as HTMLElement).style.color = "var(--muted)"; }}
+        >
+          Logout
+        </button>
       </nav>
 
       {/* ── CONTENT ─────────────────────────────────── */}
@@ -206,5 +226,6 @@ export default function Home() {
       </main>
     </div>
     </BusinessStreamProvider>
+    </AuthGuard>
   );
 }

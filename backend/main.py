@@ -2,7 +2,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
-# Comma-separated origins — override via ALLOWED_ORIGINS env var in production
 _raw_origins = os.getenv(
     "ALLOWED_ORIGINS",
     "http://localhost:3000,http://localhost:3001"
@@ -10,25 +9,38 @@ _raw_origins = os.getenv(
 ALLOWED_ORIGINS: list[str] = [o.strip() for o in _raw_origins.split(",") if o.strip()]
 
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI, WebSocket, Depends, Header, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+import jwt
 
 from routers import overview, inventory, procurement, production, forecasting, supplychain, advisor
+from routers.auth        import router as auth_router
 from routers.anomaly_stream  import router as anomaly_router, init_simulator_broadcast, anomaly_stream
 from routers.business_stream import router as business_router, init_business_broadcast
 from services.sensor_simulator   import simulator
 from services.business_simulator import business_simulator
 
+JWT_SECRET = os.getenv("JWT_SECRET", "ferromind-dev-secret")
+
+
+def verify_token(authorization: str = Header(default=None)):
+    if not authorization or not authorization.startswith("Bearer "):
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    try:
+        jwt.decode(authorization[7:], JWT_SECRET, algorithms=["HS256"])
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Token expired")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid token")
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # ── Startup ──────────────────────────────────────
-    init_simulator_broadcast()        # wire sensor broadcast fn
-    init_business_broadcast()         # wire business broadcast fn
-    await simulator.start()           # sensor stream (every 3 s)
-    await business_simulator.start()  # PO/SO/stock stream (every 30 s)
+    init_simulator_broadcast()
+    init_business_broadcast()
+    await simulator.start()
+    await business_simulator.start()
     yield
-    # ── Shutdown ─────────────────────────────────────
     await simulator.stop()
     await business_simulator.stop()
 
@@ -48,18 +60,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Existing routers
-app.include_router(overview.router,     prefix="/api/overview",     tags=["Overview"])
-app.include_router(inventory.router,    prefix="/api/inventory",    tags=["Inventory"])
-app.include_router(procurement.router,  prefix="/api/procurement",  tags=["Procurement"])
-app.include_router(production.router,   prefix="/api/production",   tags=["Production"])
-app.include_router(forecasting.router,  prefix="/api/forecasting",  tags=["Forecasting"])
-app.include_router(supplychain.router,  prefix="/api/supplychain",  tags=["Supply Chain"])
+# Auth router — no token required
+app.include_router(auth_router, prefix="/api", tags=["Auth"])
 
-# Phase 2
-app.include_router(anomaly_router,   prefix="/api", tags=["Anomaly Stream"])
-app.include_router(advisor.router,   prefix="/api", tags=["Advisor"])
-app.include_router(business_router,  prefix="/api", tags=["Business Stream"])
+# All other routers require a valid JWT
+_auth = [Depends(verify_token)]
+app.include_router(overview.router,    prefix="/api/overview",    tags=["Overview"],        dependencies=_auth)
+app.include_router(inventory.router,   prefix="/api/inventory",   tags=["Inventory"],       dependencies=_auth)
+app.include_router(procurement.router, prefix="/api/procurement", tags=["Procurement"],     dependencies=_auth)
+app.include_router(production.router,  prefix="/api/production",  tags=["Production"],      dependencies=_auth)
+app.include_router(forecasting.router, prefix="/api/forecasting", tags=["Forecasting"],     dependencies=_auth)
+app.include_router(supplychain.router, prefix="/api/supplychain", tags=["Supply Chain"],    dependencies=_auth)
+app.include_router(anomaly_router,     prefix="/api",             tags=["Anomaly Stream"],  dependencies=_auth)
+app.include_router(advisor.router,     prefix="/api",             tags=["Advisor"],         dependencies=_auth)
+app.include_router(business_router,    prefix="/api",             tags=["Business Stream"], dependencies=_auth)
+
 app.add_api_websocket_route("/ws/anomalies", anomaly_stream)
 from routers.business_stream import business_stream
 app.add_api_websocket_route("/ws/business", business_stream)

@@ -6,6 +6,7 @@ import {
   ResponsiveContainer, ReferenceLine,
 } from "recharts";
 
+import { authHeaders } from "@/lib/api";
 const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 const C = { accent:"#f0a500", green:"#2ecc8b", red:"#e8524a", blue:"#4a9eff", teal:"#2ab8b0", muted:"#6b7a8d", purple:"#7F77DD", coral:"#e05c2a" };
 const DONUT_COLORS = [C.blue, C.teal, C.green, C.accent, C.muted];
@@ -375,7 +376,7 @@ function AdvisorChat() {
 
     try {
       const res = await fetch(`${API}/api/advisor/chat`, {
-        method:"POST", headers:{"Content-Type":"application/json"},
+        method:"POST", headers:{"Content-Type":"application/json", ...authHeaders()},
         body: JSON.stringify({ question: q }),
       });
       const reader  = res.body!.getReader();
@@ -506,28 +507,36 @@ export default function AdvisorTeamSection() {
     setAgentsDone(new Set());
 
     try {
-      const res = await fetch(`${API}/api/advisor/stream${force ? "?force=true" : ""}`);
+      const res = await fetch(`${API}/api/advisor/stream${force ? "?force=true" : ""}`, { headers: authHeaders() });
       const reader  = res.body!.getReader();
       const decoder = new TextDecoder();
+      let buffer = "";
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
-        for (const line of decoder.decode(value).split("\n")) {
-          if (!line.startsWith("data:")) continue;
-          try {
-            const msg = JSON.parse(line.slice(5));
-            if (msg.type === "complete" || msg.type === "cached") {
-              setReport(msg.report);
-              setPhase("done");
-            } else {
-              if (msg.type === "agent_done" && msg.agent) {
-                const short = msg.agent.split(" ")[0];
-                setAgentsDone(prev => { const n = new Set(prev); n.add(short); return n; });
+        // Accumulate across chunks — the final "complete" event is large JSON
+        // that spans many network packets and must be reassembled before parsing.
+        buffer += decoder.decode(value, { stream: true });
+        const parts = buffer.split("\n\n");
+        buffer = parts.pop() ?? "";   // last part may be incomplete — keep it
+        for (const part of parts) {
+          for (const line of part.split("\n")) {
+            if (!line.startsWith("data:")) continue;
+            try {
+              const msg = JSON.parse(line.slice(5).trim());
+              if (msg.type === "complete" || msg.type === "cached") {
+                setReport(msg.report);
+                setPhase("done");
+              } else {
+                if (msg.type === "agent_done" && msg.agent) {
+                  const short = msg.agent.split(" ")[0];
+                  setAgentsDone(prev => { const n = new Set(prev); n.add(short); return n; });
+                }
+                setEvents(prev => [...prev, msg]);
               }
-              setEvents(prev => [...prev, msg]);
-            }
-          } catch {}
+            } catch {}
+          }
         }
       }
     } catch {
@@ -540,11 +549,11 @@ export default function AdvisorTeamSection() {
     // Only check status — never auto-start streaming on mount.
     // If a cached report exists, load it directly via /api/advisor/report
     // so we avoid re-streaming and breaking CloudFront SSE buffering.
-    fetch(`${API}/api/advisor/status`)
+    fetch(`${API}/api/advisor/status`, { headers: authHeaders() })
       .then(r => r.json())
       .then(s => {
         if (s.has_report) {
-          fetch(`${API}/api/advisor/report`)
+          fetch(`${API}/api/advisor/report`, { headers: authHeaders() })
             .then(r => r.json())
             .then(data => {
               if (data.brief) {
